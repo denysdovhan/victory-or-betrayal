@@ -1,4 +1,5 @@
 var path = require('path');
+var HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'app'),
@@ -19,5 +20,8 @@ module.exports = {
         include: path.resolve(__dirname, 'app')
       }
     ]
-  }
+  },
+  plugins: [
+    new HTMLWebpackPlugin()
+  ]
 };
