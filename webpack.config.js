@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 var HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -10,8 +11,8 @@ module.exports = {
   module:{
     loaders: [
       {
-        test: /\.js?$/,
-        loaders: ['babel'],
+        test: /\.jsx?$/,
+        loaders: ['react-hot', 'babel'],
         include: path.resolve(__dirname, 'app')
       },
       {
@@ -21,7 +22,17 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    colors: true,
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    progress: true
+  },
   plugins: [
-    new HTMLWebpackPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new HTMLWebpackPlugin({
+      title: "Victory or Betrayal"
+    })
   ]
 };
