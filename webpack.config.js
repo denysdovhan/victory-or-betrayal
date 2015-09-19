@@ -9,6 +9,11 @@ module.exports = {
   module:{
     loaders: [
       {
+        test: /\.js?$/,
+        loaders: ['babel'],
+        include: path.resolve(__dirname, 'app')
+      },
+      {
         test: /\.css$/,
         loaders: ['style', 'css'],
         include: path.resolve(__dirname, 'app')
