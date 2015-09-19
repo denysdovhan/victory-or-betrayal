@@ -16,7 +16,10 @@
     "url": "https://github.com/denysdovhan/victory-or-betrayal/issues"
   },
   "homepage": "https://github.com/denysdovhan/victory-or-betrayal#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "css-loader": "^0.18.0",
+    "style-loader": "^0.12.4",
     "webpack": "^1.12.1"
   }
 }

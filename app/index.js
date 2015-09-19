@@ -1,1 +1,1 @@
-console.log('lol');
+require('./main.css');
