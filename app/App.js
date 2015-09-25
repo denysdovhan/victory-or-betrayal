@@ -27,12 +27,16 @@ export default class App extends React.Component {
     }
   }
 
+  isItVictory() {
+    return Math.random() >= .5 ? "ПЕРЕМОГА!" : "ЗРАДА!"
+  }
+
   render() {
     const value = this.state.value !== '' ? this.state.value : "щось";
 
     return (
       <div>
-        <h1>Чи є "{value}" зрадою?</h1>
+        <h1>Чи є "{value}" зрадою? — { this.isItVictory() }</h1>
 
         <input
           type="text"
