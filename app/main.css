@@ -1,3 +1,14 @@
 body {
   background-color: gray;
 }
+
+.app {
+  width: 40rem;
+  margin: 10rem auto;
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  padding: 1rem
+}
