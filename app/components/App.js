@@ -8,7 +8,6 @@ export default class App extends React.Component {
     super(props);
 
     this.finishEdit = this.finishEdit.bind(this);
-    this.checkEnter = this.checkEnter.bind(this);
 
     this.state = {
       value: ''
