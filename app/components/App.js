@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Input from './Input';
+
 export default class App extends React.Component {
 
   constructor(props) {
@@ -21,12 +23,6 @@ export default class App extends React.Component {
     });
   }
 
-  checkEnter(e) {
-    if (e.key === 'Enter') {
-      this.finishEdit(e);
-    }
-  }
-
   isItVictory() {
     return Math.random() >= .5 ? "ПЕРЕМОГА!" : "ЗРАДА!"
   }
@@ -38,11 +34,7 @@ export default class App extends React.Component {
       <div>
         <h1>Чи є "{value}" зрадою? — { this.isItVictory() }</h1>
 
-        <input
-          type="text"
-          autoFocus={true}
-          onBlur={this.finishEdit}
-          onKeyPress={this.checkEnter}/>
+        <Input onEnter={this.finishEdit}/>
       </div>
     );
   }
