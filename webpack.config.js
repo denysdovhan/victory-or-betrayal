@@ -3,7 +3,13 @@ var webpack = require('webpack');
 var HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'app'),
+  entry: {
+    js: path.resolve(__dirname, 'app/index.js'),
+    html: path.resolve(__dirname, 'app/index.html')
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js'
@@ -14,6 +20,11 @@ module.exports = {
         test: /\.js?$/,
         loaders: ['react-hot', 'babel'],
         include: path.resolve(__dirname, 'app')
+      },
+      {
+        test: /\.html$/,
+        loader: 'file',
+        query: { name: "[name].[ext]" }
       },
       {
         test: /\.css$/,
@@ -30,9 +41,6 @@ module.exports = {
     progress: true
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new HTMLWebpackPlugin({
-      title: "Victory or Betrayal"
-    })
+    new webpack.HotModuleReplacementPlugin()
   ]
 };
