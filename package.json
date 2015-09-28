@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/denysdovhan/victory-or-betrayal#readme",
   "dependencies": {
+    "flux": "^2.1.1",
     "react": "^0.13.3"
   },
   "devDependencies": {
