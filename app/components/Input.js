@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Input extends React.Component {
+class Input extends React.Component {
 
   checkEnter(e) {
     if (e.key === 'Enter') {
@@ -19,3 +19,5 @@ export default class Input extends React.Component {
     )
   }
 }
+
+export default Input;

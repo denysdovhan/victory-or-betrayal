@@ -1,7 +1,7 @@
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import AppConstants from '../constants/AppConstants';
 
-export default {
+const AppAction = {
   inpurtRequest(data) {
     AppDispatcher.handleAction({
       actionType: AppConstants.INPUT_REQUEST,
@@ -9,3 +9,5 @@ export default {
     });
   }
 }
+
+export default AppAction;
