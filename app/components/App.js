@@ -1,4 +1,5 @@
 import React from 'react';
+import AppStore from '../stores/AppStore';
 
 import Input from './Input';
 
