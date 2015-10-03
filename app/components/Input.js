@@ -1,4 +1,5 @@
 import React from 'react';
+import AppAction from '../actions/AppAction';
 
 class Input extends React.Component {
 
@@ -6,6 +7,10 @@ class Input extends React.Component {
     if (e.key === 'Enter') {
       this.props.onEnter(e);
     }
+  }
+
+  finishEdit(e) {
+    AppAction.inputRequest(e.target.value);
   }
 
   render () {
