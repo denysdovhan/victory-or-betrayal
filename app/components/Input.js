@@ -3,9 +3,16 @@ import AppAction from '../actions/AppAction';
 
 class Input extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.checkEnter = this.checkEnter.bind(this);
+    this.finishEdit = this.finishEdit.bind(this);
+  }
+
   checkEnter(e) {
     if (e.key === 'Enter') {
-      this.props.onEnter(e);
+      console.log('Enter clicked!');
+      this.finishEdit(e);
     }
   }
 
@@ -17,10 +24,10 @@ class Input extends React.Component {
     return (
       <input
         type="text"
-        placeholder="Зрада?"
+        placeholder="Введіть запит…"
         autoFocus={true}
         onBlur={this.finishEdit}
-        onKeyPress={this.props.onEnter}/>
+        onKeyPress={this.checkEnter}/>
     )
   }
 }
