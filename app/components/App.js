@@ -3,40 +3,37 @@ import AppStore from '../stores/AppStore';
 
 import Input from './Input';
 
+const getAppState = () => ({
+  request: AppStore.getRequest(),
+  result: AppStore.getResult()
+});
+
 class App extends React.Component {
 
   constructor(props) {
     super(props);
 
-    this.finishEdit = this.finishEdit.bind(this);
-
-    this.state = {
-      value: ''
-    }
+    this._onChange = this._onChange.bind(this);
   }
 
-  finishEdit(e) {
-    console.log(`Entered text: ${e.target.value}`);
-
-    this.setState({
-      value: e.target.value
-    });
+  componentDidMount() {
+    AppStore.addChangeListener(this._onChange);
   }
 
-  isItVictory() {
-    return Math.random() >= .5 ? "ПЕРЕМОГА!" : "ЗРАДА!"
+  componentWillUnmount() {
+    AppStore.removeChangeListener(this._onChange);
   }
 
   render() {
-    const value = this.state.value !== '' ? this.state.value : "щось";
-
     return (
       <div>
-        <h1>Чи є "{value}" зрадою? — { this.isItVictory() }</h1>
-
-        <Input onEnter={this.finishEdit}/>
+        <Input />
       </div>
     );
+  }
+
+  _onChange() {
+    this.setState(getAppState());
   }
 }
 
