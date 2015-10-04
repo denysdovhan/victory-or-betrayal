@@ -2,10 +2,16 @@ import AppDispather from '../dispatcher/AppDispatcher';
 import AppConstants from '../constants/AppConstants';
 import { EventEmitter } from 'events';
 
+let request = "";
+
 class AppStore extends EventEmitter {
 
-  constructor(props) {
-    super(props);
+  getRequest() {
+    return request;
+  }
+
+  getResult() {
+    return Math.random() >= .5 ? true : false;
   }
 
   emitChange() {
@@ -21,19 +27,21 @@ class AppStore extends EventEmitter {
   }
 }
 
+const AppStoreInstance = new AppStore();
+
 AppDispather.register(payload => {
   const action = payload.action;
 
   switch (action.actionType) {
     case AppConstants.INPUT_REQUEST:
-      console.log('works!');
+      console.log('AppStore handle action:', action);
       break;
 
     default:
       return true;
   }
 
-  AppStore.emitChange();
+  AppStoreInstance.emitChange();
 });
 
-export default AppStore;
+export default AppStoreInstance;
