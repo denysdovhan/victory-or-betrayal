@@ -1,8 +1,9 @@
 import React from 'react';
 import AppStore from '../stores/AppStore';
 
-import Input from './Input';
+import Header from './Header';
 import LeadText from './LeadText';
+import Input from './Input';
 
 const getAppState = () => ({
   request: AppStore.getRequest(),
@@ -28,6 +29,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Header>Перемога чи зрада?</Header>
         <LeadText>
           Дивишся новини і не можеш розібрати де зрада, а де перемога?
           <br />
