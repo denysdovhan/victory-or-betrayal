@@ -2,6 +2,7 @@ import React from 'react';
 import AppStore from '../stores/AppStore';
 
 import Input from './Input';
+import LeadText from './LeadText';
 
 const getAppState = () => ({
   request: AppStore.getRequest(),
@@ -27,6 +28,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <LeadText>
+          Дивишся новини і не можеш розібрати де зрада, а де перемога?
+          <br />
+          Просто запитай…
+        </LeadText>
         <Input />
       </div>
     );
