@@ -7,7 +7,7 @@ class AppStore extends EventEmitter {
   constructor(props) {
     super(props);
 
-    this.requests = this.requests || [];
+    this.requests = this.requests || [{ value: "start", result: false}];
   }
 
   getRequests() {
