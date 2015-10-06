@@ -2,12 +2,16 @@ import AppDispather from '../dispatcher/AppDispatcher';
 import AppConstants from '../constants/AppConstants';
 import { EventEmitter } from 'events';
 
-let request = "";
-
 class AppStore extends EventEmitter {
 
-  getRequest() {
-    return request;
+  constructor(props) {
+    super(props);
+
+    this.requests = this.requests || [];
+  }
+
+  getRequests() {
+    return this.requests;
   }
 
   getResult() {
@@ -25,6 +29,17 @@ class AppStore extends EventEmitter {
   removeChangeListener(cb) {
     this.removeListener('change', cb);
   }
+
+  handleInputRequest(action) {
+    const reqIndex = this.requests.findIndex((req) => req.value === action.data);
+
+    if (reqIndex < 0) {
+      this.requests.unshift({
+        value: action.data,
+        result: AppStoreInstance.getResult()
+      });
+    }
+  }
 }
 
 const AppStoreInstance = new AppStore();
@@ -34,7 +49,7 @@ AppDispather.register(payload => {
 
   switch (action.actionType) {
     case AppConstants.INPUT_REQUEST:
-      console.log('AppStore handle action:', action);
+      AppStoreInstance.handleInputRequest(action);
       break;
 
     default:

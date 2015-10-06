@@ -3,11 +3,11 @@ import AppStore from '../stores/AppStore';
 
 import Header from './Header';
 import LeadText from './LeadText';
+import Result from './Result';
 import Input from './Input';
 
 const getAppState = () => ({
-  request: AppStore.getRequest(),
-  result: AppStore.getResult()
+  requests: AppStore.getRequests()
 });
 
 class App extends React.Component {
