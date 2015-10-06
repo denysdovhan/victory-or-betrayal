@@ -29,6 +29,8 @@ class App extends React.Component {
   }
 
   render() {
+    const req = this.state.requests[0];
+
     return (
       <div>
         <Header>Перемога чи зрада?</Header>
@@ -37,6 +39,7 @@ class App extends React.Component {
           <br />
           Просто запитай…
         </LeadText>
+        <Result value={req.result}/>
         <Input />
       </div>
     );
