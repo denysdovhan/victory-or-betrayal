@@ -14,10 +14,11 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js'
   },
+  devtool: 'eval-source-map',
   module:{
     loaders: [
       {
-        test: /\.js?$/,
+        test: /\.(js|jsx)$/,
         loaders: ['react-hot', 'babel'],
         include: path.resolve(__dirname, 'app')
       },
