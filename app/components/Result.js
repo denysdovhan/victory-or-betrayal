@@ -1,13 +1,9 @@
 import React from 'react';
 
-class Result extends React.Component {
-  render() {
-    return (
-      <h1 className={this.props.value ? "victory" : "betrayal"}>
-        {this.props.value ? "ПЕРЕМОГА!" : "ЗРАДА!"}
-      </h1>
-    );
-  }
-}
+const Result = ({ value }) => (
+  <h1 className={ value ? "victory" : "betrayal" }>
+    { value ? "ПЕРЕМОГА!" : "ЗРАДА!" }
+  </h1>
+);
 
 export default Result;

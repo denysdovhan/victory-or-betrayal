@@ -1,11 +1,9 @@
 import React from 'react';
 
-class LeadText extends React.Component {
-  render () {
-    return (
-      <p className="lead">{this.props.children}</p>
-    )
-  }
-}
+const LeadText = ({ children }) => (
+  <p className="lead">
+    { children }
+  </p>
+)
 
 export default LeadText;
