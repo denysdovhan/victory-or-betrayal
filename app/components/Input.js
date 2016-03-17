@@ -1,5 +1,5 @@
 import React from 'react';
-import AppAction from '../actions/AppAction';
+import { inputRequest } from '../actions/AppAction';
 
 class Input extends React.Component {
 
@@ -17,7 +17,7 @@ class Input extends React.Component {
   }
 
   finishEdit(e) {
-    AppAction.inputRequest(e.target.value);
+    inputRequest(e.target.value);
   }
 
   render () {

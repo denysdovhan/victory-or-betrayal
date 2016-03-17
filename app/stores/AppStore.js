@@ -1,5 +1,5 @@
 import AppDispather from '../dispatcher/AppDispatcher';
-import AppConstants from '../constants/AppConstants';
+import { INPUT_REQUEST } from '../actions/AppAction';
 import { EventEmitter } from 'events';
 
 class AppStore extends EventEmitter {
@@ -48,7 +48,7 @@ AppDispather.register(payload => {
   const action = payload.action;
 
   switch (action.actionType) {
-    case AppConstants.INPUT_REQUEST:
+    case INPUT_REQUEST:
       AppStoreInstance.handleInputRequest(action);
       break;
 
