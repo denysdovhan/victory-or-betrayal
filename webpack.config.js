@@ -1,47 +1,43 @@
-var path = require('path');
-var webpack = require('webpack');
-var HTMLWebpackPlugin = require('html-webpack-plugin');
+var path       = require('path');
+var webpack    = require('webpack');
+var HtmlPlugin = require('html-webpack-plugin');
+
+var APP = path.resolve(__dirname, 'app');
 
 module.exports = {
-  entry: {
-    js: path.resolve(__dirname, 'app/index.js'),
-    html: path.resolve(__dirname, 'app/index.html')
-  },
+  entry: [
+    'babel-polyfill',
+    path.join(APP, 'index.js')
+  ],
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: APP,
     filename: 'bundle.js'
   },
-  devtool: 'eval-source-map',
+  devtool: 'cheap-module-source-map',
   module:{
     loaders: [
       {
         test: /\.(js|jsx)$/,
         loaders: ['react-hot', 'babel'],
-        include: path.resolve(__dirname, 'app')
-      },
-      {
-        test: /\.html$/,
-        loader: 'file',
-        query: { name: "[name].[ext]" }
+        exclude: /node_modules/,
+        include: APP
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css'],
-        include: path.resolve(__dirname, 'app')
+        loaders: ['style', 'css']
       }
     ]
   },
-  devServer: {
-    colors: true,
-    historyApiFallback: true,
-    hot: true,
-    inline: true,
-    progress: true
-  },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new HtmlPlugin({
+      filename: 'index.html',
+      template: path.join(APP, 'index.html')
+    })
   ]
 };
