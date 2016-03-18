@@ -14,18 +14,19 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this._onChange = this._onChange.bind(this);
-
     this.state = getAppState();
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onChange);
+    AppStore.addChangeListener(() =>
+      this.setState(getAppState())
+    );
   }
 
   componentWillUnmount() {
-    AppStore.removeChangeListener(this._onChange);
+    AppStore.removeChangeListener(() =>
+      this.setState(getAppState())
+    );
   }
 
   render() {
@@ -43,10 +44,6 @@ class App extends React.Component {
         <Input />
       </div>
     );
-  }
-
-  _onChange() {
-    this.setState(getAppState());
   }
 }
 
