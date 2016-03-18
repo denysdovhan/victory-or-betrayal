@@ -7,10 +7,12 @@ const Input = () => {
       type="text"
       placeholder="Введіть запит…"
       autoFocus={true}
-      onBlur={inputRequest}
+      onBlur={ e => {
+        inputRequest(e.target.value)
+      }}
       onKeyPress={ e => {
         if (e.key === 'Enter') {
-          inputRequest(e);
+          inputRequest(e.target.value);
         }
       }}/>
   )
