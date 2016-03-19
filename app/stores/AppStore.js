@@ -7,14 +7,21 @@ class AppStore extends EventEmitter {
   constructor(props) {
     super(props);
 
-    this.requests = this.requests || [{ value: "start", result: false}];
+    this.setAppState = {
+      status: null,
+      query: ''
+    };
   }
 
-  getRequests() {
-    return this.requests;
+  set setAppState(newState) {
+    this.state = Object.assign({}, this.state, newState);
   }
 
-  getResult() {
+  get getAppState() {
+    return this.state;
+  }
+
+  get getStatus() {
     return Math.random() >= .5 ? true : false;
   }
 
@@ -30,15 +37,13 @@ class AppStore extends EventEmitter {
     this.removeListener('change', cb);
   }
 
-  handleInputRequest(action) {
-    const reqIndex = this.requests.findIndex((req) => req.value === action.data);
+  handleInputRequest({ data }) {
+    if (this.state.query === data) return;
 
-    if (reqIndex < 0) {
-      this.requests.unshift({
-        value: action.data,
-        result: AppStoreInstance.getResult()
-      });
-    }
+    this.setAppState = {
+      status: this.getStatus,
+      query: data
+    };
   }
 }
 
