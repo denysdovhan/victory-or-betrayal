@@ -31,7 +31,8 @@ module.exports = {
         test: /\.(js|jsx)$/,
         loaders: ['react-hot', 'babel'],
         exclude: /node_modules/,
-        include: APP
+        include: APP,
+        plugin: ['transform-runtime']
       },
       {
         test: /\.css$/,
