@@ -12,7 +12,7 @@ const Input = ({ value }) => {
         updateInputValue(e.target.value);
       }}
       onBlur={ e => {
-        inputRequest(e.target.value)
+        inputRequest(e.target.value);
       }}
       onKeyPress={ e => {
         if (e.key === 'Enter') {

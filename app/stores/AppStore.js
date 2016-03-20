@@ -1,6 +1,7 @@
 import {
   UPDATE_INPUT_VALUE,
-  INPUT_REQUEST
+  INPUT_REQUEST,
+  RECIEVE_QUERY
 } from '../actions/AppAction';
 
 import AppDispather from '../dispatcher/AppDispatcher';
@@ -28,7 +29,7 @@ class AppStore extends EventEmitter {
   }
 
   get getStatus() {
-    return Math.random() >= .5 ? true : false;
+    return Math.random() >= 0.4 ? 'victory' : 'betrayal';
   }
 
   emitChange() {
@@ -54,12 +55,35 @@ class AppStore extends EventEmitter {
       return;
     }
 
+    const status = this.getStatus;
+    const query = value.split(' ').join('_');
+    if (this.state.query === query) return;
 
     this.setAppState = {
       query,
       value,
       status
     };
+
+    hashHistory.push(`${status}/${query}`);
+  }
+
+  handleRecieveQuery({ status, query }) {
+    if (status && query) {
+      if (status === 'victory' || status === 'betrayal') {
+
+        this.setAppState = {
+          query,
+          value: query.split('_').join(' '),
+          status
+        };
+
+        hashHistory.push(`${status}/${query}`)
+      } else {
+        console.error('Invalid query:', query, status);
+        hashHistory.push('/');
+      }
+    }
   }
 }
 
@@ -75,6 +99,10 @@ AppDispather.register(payload => {
 
     case INPUT_REQUEST:
       AppStoreInstance.handleInputRequest(action);
+      break;
+
+    case RECIEVE_QUERY:
+      AppStoreInstance.handleRecieveQuery(action);
       break;
 
     default:

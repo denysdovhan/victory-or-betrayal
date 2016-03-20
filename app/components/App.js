@@ -18,6 +18,9 @@ class App extends React.Component {
     AppStore.addChangeListener(() =>
       this.setState(AppStore.getAppState)
     );
+
+    const { status, query } = this.props.params;
+    AppAction.receiveQuery(status, query);
   }
 
   componentWillUnmount() {
