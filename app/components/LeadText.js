@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LeadText = ({ children }) => (
-  <p className="lead">
+  <p className='lead'>
     { children }
   </p>
 )

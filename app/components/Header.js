@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Header = ({ children }) => (
-  <h1 className="header">
+  <h1 className='header'>
     { children }
   </h1>
 );

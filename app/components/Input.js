@@ -3,8 +3,8 @@ import React from 'react';
 const Input = ({ value, changeHandler, requersHandler }) => {
   return (
     <input
-      type="text"
-      placeholder="Введіть запит…"
+      type='text'
+      placeholder='Введіть запит…'
       value={ value }
       autoFocus={ true }
       onChange={ e => {
