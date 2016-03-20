@@ -19,6 +19,13 @@ module.exports = {
   },
   devtool: 'cheap-module-source-map',
   module:{
+    preLoaders: [
+      {
+        test: /\.(js|jsx)$/,
+        loaders: ['eslint'],
+        include: APP
+      }
+    ],
     loaders: [
       {
         test: /\.(js|jsx)$/,
