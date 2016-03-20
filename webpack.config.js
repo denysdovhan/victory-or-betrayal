@@ -2,7 +2,8 @@ var path       = require('path');
 var webpack    = require('webpack');
 var HtmlPlugin = require('html-webpack-plugin');
 
-var APP = path.resolve(__dirname, 'app');
+var APP   = path.resolve(__dirname, 'app');
+var BUILD = path.resolve(__dirname, 'build');
 
 module.exports = {
   entry: [
@@ -13,7 +14,7 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   output: {
-    path: APP,
+    path: BUILD,
     filename: 'bundle.js'
   },
   devtool: 'cheap-module-source-map',

@@ -5,7 +5,7 @@
   "main": "app/index.html",
   "scripts": {
     "start": "webpack-dev-server --progress --colors",
-    "build": "webpack -p",
+    "build": "webpack -p --progress --colors",
     "deploy": "npm run build && gh-pages -d build -m \"Updated at $(date +'%a, %d %b %Y, %T, %Z')\" --add",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
