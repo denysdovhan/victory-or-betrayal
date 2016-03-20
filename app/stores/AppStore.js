@@ -1,6 +1,11 @@
+import {
+  UPDATE_INPUT_VALUE,
+  INPUT_REQUEST
+} from '../actions/AppAction';
+
 import AppDispather from '../dispatcher/AppDispatcher';
-import { INPUT_REQUEST } from '../actions/AppAction';
 import { EventEmitter } from 'events';
+import { hashHistory } from 'react-router';
 
 class AppStore extends EventEmitter {
 
@@ -9,7 +14,8 @@ class AppStore extends EventEmitter {
 
     this.setAppState = {
       status: null,
-      query: ''
+      query: '',
+      value: ''
     };
   }
 
@@ -37,12 +43,22 @@ class AppStore extends EventEmitter {
     this.removeListener('change', cb);
   }
 
-  handleInputRequest({ data }) {
-    if (this.state.query === data) return;
+  handleUpdateInputValue({ value }) {
+    this.setAppState = { value };
+  }
+
+  handleInputRequest({ value }) {
+    if (value === '') {
+      this.setAppState = { value, status: null };
+      hashHistory.push('/');
+      return;
+    }
+
 
     this.setAppState = {
-      status: this.getStatus,
-      query: data
+      query,
+      value,
+      status
     };
   }
 }
@@ -53,6 +69,10 @@ AppDispather.register(payload => {
   const action = payload.action;
 
   switch (action.actionType) {
+    case UPDATE_INPUT_VALUE:
+      AppStoreInstance.handleUpdateInputValue(action);
+      break;
+
     case INPUT_REQUEST:
       AppStoreInstance.handleInputRequest(action);
       break;

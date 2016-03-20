@@ -1,12 +1,16 @@
 import React from 'react';
-import { inputRequest } from '../actions/AppAction';
+import { updateInputValue, inputRequest } from '../actions/AppAction';
 
-const Input = () => {
+const Input = ({ value }) => {
   return (
     <input
       type="text"
       placeholder="Введіть запит…"
-      autoFocus={true}
+      value={ value }
+      autoFocus={ true }
+      onChange={ e => {
+        updateInputValue(e.target.value);
+      }}
       onBlur={ e => {
         inputRequest(e.target.value)
       }}

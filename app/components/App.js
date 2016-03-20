@@ -33,8 +33,8 @@ class App extends React.Component {
         <LeadText>
           Дивишся новини і не можеш розібрати де зрада, а де перемога?
         </LeadText>
-        <Result value={this.state.status}/>
-        <Input />
+        <Result status={this.state.status}/>
+        <Input value={this.state.value}/>
       </div>
     );
   }
