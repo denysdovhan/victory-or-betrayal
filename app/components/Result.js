@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Result = ({ value }) => (
-  <h1 className={ value ? "victory" : "betrayal" }>
-    { value ? "ПЕРЕМОГА!" : "ЗРАДА!" }
+const Result = ({ status }) => (
+  <h1 className={ status }>
+    { status === 'victory'  ? "ПЕРЕМОГА!" :
+      status === 'betrayal' ? "ЗРАДА!"    : 'Просто запитай…' }
   </h1>
 );
 
