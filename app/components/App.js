@@ -37,7 +37,10 @@ class App extends React.Component {
           Дивишся новини і не можеш розібрати де зрада, а де перемога?
         </LeadText>
         <Result status={this.state.status}/>
-        <Input value={this.state.value}/>
+        <Input
+          value={this.state.value}
+          changeHandler={AppAction.updateInputValue}
+          requersHandler={AppAction.inputRequest} />
       </div>
     );
   }

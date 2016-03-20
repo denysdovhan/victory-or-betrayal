@@ -1,7 +1,6 @@
 import React from 'react';
-import { updateInputValue, inputRequest } from '../actions/AppAction';
 
-const Input = ({ value }) => {
+const Input = ({ value, changeHandler, requersHandler }) => {
   return (
     <input
       type="text"
@@ -9,14 +8,14 @@ const Input = ({ value }) => {
       value={ value }
       autoFocus={ true }
       onChange={ e => {
-        updateInputValue(e.target.value);
+        changeHandler(e.target.value);
       }}
       onBlur={ e => {
-        inputRequest(e.target.value);
+        requersHandler(e.target.value);
       }}
       onKeyPress={ e => {
         if (e.key === 'Enter') {
-          inputRequest(e.target.value);
+          requersHandler(e.target.value);
         }
       }}/>
   )
