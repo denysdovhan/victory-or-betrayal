@@ -47,6 +47,14 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    contentBase: PATHS.build,
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    progress: true,
+    stats: 'errors-only'
+  },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
