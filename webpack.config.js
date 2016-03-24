@@ -7,19 +7,21 @@ const autoprefixer    = require('autoprefixer');
 const preccs          = require('precss');
 const fontMagician    = require('postcss-font-magician');
 
-var APP   = path.resolve(__dirname, 'app');
-var BUILD = path.resolve(__dirname, 'build');
+const PATHS = {
+  app:    path.resolve(__dirname, 'app'),
+  build:  path.resolve(__dirname, 'build')
+}
 
 module.exports = {
   entry: [
     'babel-polyfill',
-    path.join(APP, 'index.js')
+    PATHS.app
   ],
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
   output: {
-    path: BUILD,
+    path: PATHS.build,
     filename: 'bundle.js'
   },
   devtool: 'cheap-module-source-map',
@@ -28,7 +30,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         loaders: ['eslint'],
-        include: APP
+        include: PATHS.app
       }
     ],
     loaders: [
@@ -36,7 +38,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         loaders: ['react-hot', 'babel'],
         exclude: /node_modules/,
-        include: APP,
+        include: PATHS.app,
         plugin: ['transform-runtime']
       },
       {
@@ -52,7 +54,7 @@ module.exports = {
     new NpmInstallPlugin(),
     new HtmlPlugin({
       filename: 'index.html',
-      template: path.join(APP, 'index.html')
+      template: path.join(PATHS.app, 'index.html')
     })
   ],
   postcss: () => [
