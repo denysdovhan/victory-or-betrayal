@@ -78,7 +78,7 @@ class AppStore extends EventEmitter {
           status
         };
 
-        hashHistory.push(`${status}/${query}`)
+        hashHistory.push(`${status}/${query}`);
       } else {
         console.error('Invalid query:', query, status);
         hashHistory.push('/');

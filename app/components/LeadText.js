@@ -4,6 +4,6 @@ const LeadText = ({ children }) => (
   <p className='lead'>
     { children }
   </p>
-)
+);
 
 export default LeadText;

@@ -18,7 +18,7 @@ const Input = ({ value, changeHandler, requersHandler }) => {
           requersHandler(e.target.value);
         }
       }}/>
-  )
-}
+  );
+};
 
 export default Input;
