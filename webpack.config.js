@@ -1,5 +1,6 @@
 const path             = require('path');
 const webpack          = require('webpack');
+const NpmInstallPlugin = require('npm-install-webpack-plugin');
 const HtmlPlugin       = require('html-webpack-plugin');
 
 const autoprefixer    = require('autoprefixer');
@@ -48,6 +49,7 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
+    new NpmInstallPlugin(),
     new HtmlPlugin({
       filename: 'index.html',
       template: path.join(APP, 'index.html')
