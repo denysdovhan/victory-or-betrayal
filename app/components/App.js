@@ -2,6 +2,7 @@ import React from 'react';
 import AppStore from '../stores/AppStore';
 import * as AppAction from '../actions/AppAction';
 
+import DocumentTitle from 'react-document-title';
 import Header from './Header';
 import LeadText from './LeadText';
 import Result from './Result';
@@ -29,19 +30,36 @@ class App extends React.Component {
     );
   }
 
+  getPageTitle() {
+    const { status, value } = this.state;
+    if (status) {
+      const result = status == 'victory'  ? 'ПЕРЕМОГА' :
+                     status == 'betrayal' ? 'ЗРАДА'    : 'щось незрозуміле';
+      return `«${value}» це ${result}`;
+    } else {
+      return 'ПЕРЕМОГА чи ЗРАДА?';
+    }
+  }
+
   render() {
     return (
-      <div>
-        <Header>Перемога чи зрада?</Header>
-        <LeadText>
-          Дивишся новини і не можеш розібрати де зрада, а де перемога?
-        </LeadText>
-        <Result status={this.state.status}/>
-        <Input
-          value={this.state.value}
-          changeHandler={AppAction.updateInputValue}
-          requersHandler={AppAction.inputRequest} />
-      </div>
+      <DocumentTitle title={this.getPageTitle()}>
+        <div>
+          <Header>
+            <span className='victory'>ПЕРЕМОГА</span>
+            { ' чи ' }
+            <span className='betrayal'>ЗРАДА</span>?
+          </Header>
+          <LeadText>
+            Дивишся новини і не можеш розібрати де зрада, а де перемога?
+          </LeadText>
+          <Result status={this.state.status}/>
+          <Input
+            value={this.state.value}
+            changeHandler={AppAction.updateInputValue}
+            requersHandler={AppAction.inputRequest} />
+        </div>
+      </DocumentTitle>
     );
   }
 }
