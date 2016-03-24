@@ -1,6 +1,10 @@
-var path       = require('path');
-var webpack    = require('webpack');
-var HtmlPlugin = require('html-webpack-plugin');
+const path             = require('path');
+const webpack          = require('webpack');
+const HtmlPlugin       = require('html-webpack-plugin');
+
+const autoprefixer    = require('autoprefixer');
+const preccs          = require('precss');
+const fontMagician    = require('postcss-font-magician');
 
 var APP   = path.resolve(__dirname, 'app');
 var BUILD = path.resolve(__dirname, 'build');
@@ -18,7 +22,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   devtool: 'cheap-module-source-map',
-  module:{
+  module: {
     preLoaders: [
       {
         test: /\.(js|jsx)$/,
@@ -36,7 +40,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css']
+        loaders: ['style', 'css', 'postcss']
       }
     ]
   },
@@ -48,5 +52,10 @@ module.exports = {
       filename: 'index.html',
       template: path.join(APP, 'index.html')
     })
+  ],
+  postcss: () => [
+    autoprefixer({ browsers: ['last 2 versions'] }),
+    preccs,
+    fontMagician
   ]
 };
