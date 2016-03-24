@@ -44,10 +44,6 @@ class AppStore extends EventEmitter {
     this.removeListener('change', cb);
   }
 
-  handleUpdateInputValue({ value }) {
-    this.setAppState = { value };
-  }
-
   handleInputRequest({ value }) {
     if (value === '') {
       this.setAppState = { value, status: null };
