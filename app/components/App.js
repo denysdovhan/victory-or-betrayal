@@ -1,12 +1,12 @@
 import React from 'react';
-import AppStore from '../stores/AppStore';
-import * as AppAction from '../actions/AppAction';
+import AppStore from 'stores/AppStore';
+import * as AppAction from 'actions/AppAction';
 
 import DocumentTitle from 'react-document-title';
-import Header from './Header';
-import LeadText from './LeadText';
-import Result from './Result';
-import Input from './Input';
+import Header from 'components/Header';
+import LeadText from 'components/LeadText';
+import Result from 'components/Result';
+import Input from 'components/Input';
 
 class App extends React.Component {
 

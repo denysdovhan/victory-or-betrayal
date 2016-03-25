@@ -1,10 +1,10 @@
-import './styles/main.css';
+import 'styles/main.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory } from 'react-router';
 
-import App from './components/App';
+import App from 'components/App';
 
 ReactDOM.render((
   <Router history={ hashHistory }>

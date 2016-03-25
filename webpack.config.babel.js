@@ -19,7 +19,13 @@ const config = {
     PATHS.app
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.css'],
+    alias: {
+      actions:    `${PATHS.app}/actions`,
+      components: `${PATHS.app}/components`,
+      stores:     `${PATHS.app}/stores`,
+      styles:     `${PATHS.app}/styles`
+    }
   },
   output: {
     path: PATHS.build,

@@ -2,7 +2,7 @@ import {
   UPDATE_INPUT_VALUE,
   INPUT_REQUEST,
   RECIEVE_QUERY
-} from '../actions/AppAction';
+} from 'actions/AppAction';
 
 import AppDispather from '../dispatcher/AppDispatcher';
 import { EventEmitter } from 'events';
