@@ -13,7 +13,7 @@ const PATHS = {
   build:  `${__dirname}/build`
 };
 
-module.exports = {
+const config = {
   entry: [
     'babel-polyfill',
     PATHS.app
@@ -48,14 +48,6 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    contentBase: PATHS.build,
-    historyApiFallback: true,
-    hot: true,
-    inline: true,
-    progress: true,
-    stats: 'errors-only'
-  },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
@@ -74,3 +66,29 @@ module.exports = {
     fontMagician
   ]
 };
+
+if (NODE_ENV === 'production') {
+  config.plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        pure_getters: true,
+        unsafe: true,
+        unsafe_comps: true,
+        screw_ie8: true,
+        warnings: false
+      }
+    })
+  );
+} else {
+  config.devServer = {
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    progress: true,
+    stats: {
+      colors: true
+    }
+  };
+}
+
+export default config;
