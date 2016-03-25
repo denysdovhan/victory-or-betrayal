@@ -52,7 +52,7 @@ class AppStore extends EventEmitter {
     }
 
     const status = this.getStatus;
-    const query = value.split(' ').join('_');
+    const query = encodeURIComponent(value.split(' ').join('_'));
     if (this.state.query === query) return;
 
     this.setAppState = {
@@ -70,7 +70,7 @@ class AppStore extends EventEmitter {
 
         this.setAppState = {
           query,
-          value: query.split('_').join(' '),
+          value: decodeURIComponent(query.split('_').join(' ')),
           status
         };
 
