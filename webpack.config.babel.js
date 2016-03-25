@@ -1,16 +1,17 @@
-const path             = require('path');
-const webpack          = require('webpack');
-const NpmInstallPlugin = require('npm-install-webpack-plugin');
-const HtmlPlugin       = require('html-webpack-plugin');
+import webpack from 'webpack';
+import NPMInstallPlugin from 'npm-install-webpack-plugin';
+import HTMLPlugin from 'html-webpack-plugin';
 
-const autoprefixer    = require('autoprefixer');
-const preccs          = require('precss');
-const fontMagician    = require('postcss-font-magician');
+import autoprefixer from 'autoprefixer';
+import precss from 'precss';
+import fontMagician from 'postcss-font-magician';
+
+const NODE_ENV = process.env.NODE_ENV;
 
 const PATHS = {
-  app:    path.resolve(__dirname, 'app'),
-  build:  path.resolve(__dirname, 'build')
-}
+  app:    `${__dirname}/app`,
+  build:  `${__dirname}/build`
+};
 
 module.exports = {
   entry: [
@@ -24,7 +25,7 @@ module.exports = {
     path: PATHS.build,
     filename: 'bundle.js'
   },
-  devtool: 'cheap-module-source-map',
+  devtool: '#cheap-source-map',
   module: {
     preLoaders: [
       {
@@ -59,15 +60,17 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new NpmInstallPlugin(),
-    new HtmlPlugin({
+    new NPMInstallPlugin(),
+    new HTMLPlugin({
       filename: 'index.html',
-      template: path.join(PATHS.app, 'index.html')
+      template: `${PATHS.app}/index.html`
     })
   ],
   postcss: () => [
-    autoprefixer({ browsers: ['last 2 versions'] }),
-    preccs,
+    autoprefixer({
+      browsers: ['last 2 versions']
+    }),
+    precss,
     fontMagician
   ]
 };
