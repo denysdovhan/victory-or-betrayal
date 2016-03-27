@@ -1,0 +1,20 @@
+/*
+ * APP
+ */
+
+html {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  background-image: url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/first_aid_kit.png');
+  font-family: 'Roboto', sans-serif;
+  color: #555;
+}
+
+.app {
+  width: 40rem;
+  margin: 10rem auto;
+  text-align: center;
+}

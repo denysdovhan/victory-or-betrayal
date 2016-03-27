@@ -1,0 +1,20 @@
+:root {
+  --victory: #0dd50d;
+  --betrayal: #ff4848;
+}
+
+:global {
+  & .victory,
+  & .betrayal {
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+  }
+
+  & .victory {
+    color: var(--victory);
+  }
+
+  & .betrayal {
+    color: var(--betrayal);
+  }
+}

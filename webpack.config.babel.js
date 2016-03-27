@@ -2,9 +2,7 @@ import webpack from 'webpack';
 import NPMInstallPlugin from 'npm-install-webpack-plugin';
 import HTMLPlugin from 'html-webpack-plugin';
 
-import autoprefixer from 'autoprefixer';
-import precss from 'precss';
-import fontMagician from 'postcss-font-magician';
+import cssnext from 'postcss-cssnext';
 
 const NODE_ENV = process.env.NODE_ENV;
 
@@ -50,7 +48,7 @@ const config = {
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css', 'postcss']
+        loaders: ['style', 'css?modules&sourceMap&importLoaders=1', 'postcss']
       }
     ]
   },
@@ -65,11 +63,7 @@ const config = {
     })
   ],
   postcss: () => [
-    autoprefixer({
-      browsers: ['last 2 versions']
-    }),
-    precss,
-    fontMagician
+    cssnext
   ]
 };
 

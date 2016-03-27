@@ -8,6 +8,8 @@ import LeadText from 'components/LeadText';
 import Result from 'components/Result';
 import Input from 'components/Input';
 
+import styles from 'styles/App';
+
 class App extends React.Component {
 
   constructor(props) {
@@ -44,7 +46,7 @@ class App extends React.Component {
   render() {
     return (
       <DocumentTitle title={this.getPageTitle()}>
-        <div>
+        <div className={styles.app}>
           <Header>
             <span className='victory'>ПЕРЕМОГА</span>
             { ' чи ' }

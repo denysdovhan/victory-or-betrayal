@@ -1,4 +1,5 @@
 import React from 'react';
+import 'styles/Result';
 
 const Result = ({ status }) => (
   <h1 className={ status }>
