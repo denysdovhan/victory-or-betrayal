@@ -19,6 +19,7 @@
     "new-cap": 0,
     "strict": 0,
     "semi": [1, "always"],
+    "no-debugger": 1,
     "no-underscore-dangle": 0,
     "no-use-before-define": 0,
     "eol-last": 0,
