@@ -7,7 +7,7 @@
     "start": "NODE_ENV=development webpack-dev-server",
     "build": "NODE_ENV=production webpack -p",
     "deploy": "npm run build && gh-pages -d build -m \"Updated at $(date +'%a, %d %b %Y, %T, %Z')\" --add",
-    "test": "eslint . --ext .js --ext .jsx || true"
+    "lint": "eslint . --ext .js --ext .jsx || true"
   },
   "repository": {
     "type": "git",
