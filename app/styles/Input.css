@@ -1,24 +1,24 @@
 :root {
-  --textColor: #555;
-  --inputBg: rgb(255, 255, 255);
+  --inputBg: white;
+  --inputPad: 1rem;
   --inputBorder: color(var(--inputBg) blackness(35%));
+  --inputBorderRadius: .3rem;
 }
 
 .input {
-  box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.5);;
-  width: 100%;
-  padding: 1rem;
   font-size: 1.5rem;
-  color: var(--textColor);
+  width: 100%;
+  padding: var(--inputPad);
+  background-color: color(var(--inputBg) alpha(0.5));
   transition: all .2s linear;
   border: 1px solid var(--inputBorder);
-  border-radius: 3px;
+  border-radius: var(--inputBorderRadius);
+  box-sizing: border-box;
   box-shadow: inset 0 2px 2px var(--inputBorder);
 
   &:active,
   &:focus {
-    background-color: rgba(255, 255, 255, 1);;
+    background-color: var(--inputBg);
     outline: none;
   }
 }
