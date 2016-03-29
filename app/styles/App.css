@@ -4,6 +4,7 @@
 
 :root {
   --textColor: #555;
+  --linkColor: #000;
   --bodyBg: 'http://cdn.backgroundhost.com/backgrounds/subtlepatterns/first_aid_kit.png'
 }
 
@@ -19,7 +20,12 @@ body {
 }
 
 a {
-  color: var(--textColor);
+  color: var(--linkColor);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .app {

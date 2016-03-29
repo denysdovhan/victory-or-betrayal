@@ -10,11 +10,11 @@ const SocialLinks = ({ text, url }) => {
   return (
     <div className={styles.social}>
       { 'поділитись через '}
-      <a href={tw} target='_blank' className={styles.link}>Twitter</a>
+      <a href={tw} target='_blank'>Twitter</a>
       {', '}
-      <a href={fb} target='_blank' className={styles.link}>Facebook</a>
+      <a href={fb} target='_blank'>Facebook</a>
       {' або '}
-      <a href={vk} target='_blank' className={styles.link}>ВКонтакті</a>
+      <a href={vk} target='_blank'>ВКонтакті</a>
     </div>
   );
 };
