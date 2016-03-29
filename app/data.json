@@ -10,5 +10,15 @@
   "placeholders": {
     "result": "Просто запитай…",
     "input": "Введіть запит…"
-  }
+  },
+  "footer": [{
+    "text": "Що це таке?",
+    "href": "http://fakty.ictv.ua/ua/index/read-news/id/1556621"
+  }, {
+    "text": "Автор",
+    "href": "https://twitter.com/denysdovhan"
+  }, {
+    "text": "GitHub",
+    "href": "https://github.com/denysdovhan/victory-or-betrayal"
+  }]
 }

@@ -1,0 +1,26 @@
+:root {
+  --linkColor: #555;
+}
+
+.footer {
+  position: absolute;
+  bottom: .5rem;
+  right: .5rem;
+
+  & a {
+    color: var(--linkColor);
+    position: relative;
+    margin-right: 1rem;
+
+    &:after {
+      /* do not apply underline for pseude */
+      position: absolute;
+      right: -.6rem;
+      content: '•';
+    }
+
+    &:last-child:after {
+      content: '';
+    }
+  }
+}
