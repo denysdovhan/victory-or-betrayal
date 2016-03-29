@@ -17,7 +17,7 @@ const config = {
     PATHS.app
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css'],
+    extensions: ['', '.js', '.jsx', '.json', '.css'],
     alias: {
       actions:    `${PATHS.app}/actions`,
       components: `${PATHS.app}/components`,
@@ -45,6 +45,10 @@ const config = {
         exclude: /node_modules/,
         include: PATHS.app,
         plugin: ['transform-runtime']
+      },
+      {
+        test: /\.json$/,
+        loaders: ['json']
       },
       {
         test: /\.css$/,

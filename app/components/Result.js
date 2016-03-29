@@ -1,10 +1,10 @@
 import React from 'react';
 import 'styles/Result';
+import data from '../data';
 
 const Result = ({ status }) => (
   <h1 className={ status }>
-    { status === 'victory'  ? 'ПЕРЕМОГА!' :
-      status === 'betrayal' ? 'ЗРАДА!'    : 'Просто запитай…' }
+    { status ? data.results[status] : data.placeholders.result }
   </h1>
 );
 

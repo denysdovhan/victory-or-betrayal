@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from 'styles/Input';
+import data from '../data';
 
 class Input extends React.Component  {
   constructor(props) {
@@ -17,7 +18,7 @@ class Input extends React.Component  {
       <input
         type='text'
         className={styles.input}
-        placeholder='Введіть запит…'
+        placeholder={data.placeholders.input}
         value={ value }
         autoFocus={ true }
         onChange={ e => {

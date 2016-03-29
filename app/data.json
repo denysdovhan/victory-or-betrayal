@@ -1,0 +1,14 @@
+{
+  "title": "ПЕРЕМОГА чи ЗРАДА?",
+  "description": "Дивишся новини і не можеш розібрати де зрада, а де перемога?",
+  "image": "https://cloud.githubusercontent.com/assets/3459374/14089732/1b9bb11c-f53f-11e5-90a8-ffd6e0e5aba4.png",
+  "results": {
+    "victory": "ПЕРЕМОГА",
+    "betrayal": "ЗРАДА",
+    "shame": "ГАНЬБА"
+  },
+  "placeholders": {
+    "result": "Просто запитай…",
+    "input": "Введіть запит…"
+  }
+}

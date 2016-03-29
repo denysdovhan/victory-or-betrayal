@@ -10,6 +10,7 @@ import Result from 'components/Result';
 import Input from 'components/Input';
 
 import styles from 'styles/App';
+import data from '../data';
 
 class App extends React.Component {
 
@@ -36,11 +37,9 @@ class App extends React.Component {
   getPageTitle() {
     const { status, value } = this.state;
     if (status) {
-      const result = status == 'victory'  ? 'ПЕРЕМОГА' :
-                     status == 'betrayal' ? 'ЗРАДА'    : 'щось незрозуміле';
-      return `«${value}» це ${result}`;
+      return `«${value}» це ${data.results[status]}`;
     } else {
-      return 'ПЕРЕМОГА чи ЗРАДА?';
+      return `${data.title}`;
     }
   }
 
@@ -48,20 +47,27 @@ class App extends React.Component {
     return (
       <DocumentTitle title={this.getPageTitle()}>
         <div className={styles.app}>
-          <Meta title={this.getPageTitle()}/>
+
+          <Meta
+            title={this.getPageTitle()}
+            description={data.description}
+            image={data.image}/>
+
           <Header>
-            <span className='victory'>ПЕРЕМОГА</span>
+            <span className='victory'>{data.results.victory}</span>
             { ' чи ' }
-            <span className='betrayal'>ЗРАДА</span>?
+            <span className='betrayal'>{data.results.betrayal}</span>?
           </Header>
-          <LeadText>
-            Дивишся новини і не можеш розібрати де зрада, а де перемога?
-          </LeadText>
+
+          <LeadText>{data.description}</LeadText>
+
           <Result status={this.state.status}/>
+
           <Input
             value={this.state.value}
             changeHandler={AppAction.updateInputValue}
             requersHandler={AppAction.inputRequest} />
+
         </div>
       </DocumentTitle>
     );
