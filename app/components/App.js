@@ -7,6 +7,7 @@ import Header from 'components/Header';
 import LeadText from 'components/LeadText';
 import Result from 'components/Result';
 import Input from 'components/Input';
+import SocialLinks from 'components/SocialLinks';
 
 import styles from 'styles/App';
 import data from '../data';
@@ -62,6 +63,9 @@ class App extends React.Component {
             changeHandler={AppAction.updateInputValue}
             requersHandler={AppAction.inputRequest} />
 
+          <SocialLinks
+            url={window.location.href}
+            text={this.getPageTitle()}/>
         </div>
       </DocumentTitle>
     );

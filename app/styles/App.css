@@ -18,6 +18,10 @@ body {
   color: var(--textColor);
 }
 
+a {
+  color: var(--textColor);
+}
+
 .app {
   width: 100%;
   max-width: 768px;
