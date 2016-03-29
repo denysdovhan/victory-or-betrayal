@@ -1,7 +1,3 @@
-/*
- * APP
- */
-
 :root {
   --textColor: #555;
   --linkColor: #000;
@@ -33,4 +29,8 @@ a {
   max-width: 768px;
   margin: 10rem auto;
   text-align: center;
+
+  @media (width <= 768px) {
+    margin-top: 7rem;
+  }
 }
