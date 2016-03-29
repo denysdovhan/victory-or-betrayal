@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import styles from 'styles/Input';
 import data from '../data';
 
@@ -35,5 +35,9 @@ class Input extends React.Component  {
     );
   }
 }
+
+Input.propsTypes = {
+  value: PropTypes.string.isRequired
+};
 
 export default Input;

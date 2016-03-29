@@ -25,4 +25,11 @@ const Meta = ({
   );
 };
 
+Meta.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  url: PropTypes.string
+};
+
 export default Meta;
