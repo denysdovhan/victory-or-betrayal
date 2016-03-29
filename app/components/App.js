@@ -3,7 +3,6 @@ import AppStore from 'stores/AppStore';
 import * as AppAction from 'actions/AppAction';
 
 import DocumentTitle from 'react-document-title';
-import Meta from 'components/Meta';
 import Header from 'components/Header';
 import LeadText from 'components/LeadText';
 import Result from 'components/Result';
@@ -47,11 +46,6 @@ class App extends React.Component {
     return (
       <DocumentTitle title={this.getPageTitle()}>
         <div className={styles.app}>
-
-          <Meta
-            title={this.getPageTitle()}
-            description={data.description}
-            image={data.image}/>
 
           <Header>
             <span className='victory'>{data.results.victory}</span>

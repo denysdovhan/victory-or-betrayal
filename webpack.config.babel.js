@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import NPMInstallPlugin from 'npm-install-webpack-plugin';
 import HTMLPlugin from 'html-webpack-plugin';
+import data from './app/data';
 
 import cssnext from 'postcss-cssnext';
 
@@ -62,8 +63,10 @@ const config = {
     new webpack.NoErrorsPlugin(),
     new NPMInstallPlugin(),
     new HTMLPlugin({
-      filename: 'index.html',
-      template: `${PATHS.app}/index.html`
+      title: data.title,
+      description: data.description,
+      image: data.image,
+      template: `${PATHS.app}/index.ejs`
     })
   ],
   postcss: () => [

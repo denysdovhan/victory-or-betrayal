@@ -2,8 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ПЕРЕМОГА чи ЗРАДА?</title>
+  <title><%= htmlWebpackPlugin.options.title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
+  <meta name="twitter:card" content="product">
+  <meta name="twitter:title" content="<%= htmlWebpackPlugin.options.title %>">
+  <meta name="twitter:description" content="<%= htmlWebpackPlugin.options.description %>">
+  <meta name="twitter:image" content="<%= htmlWebpackPlugin.options.image %>">
+  <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>">
+  <meta property="og:image" content="<%= htmlWebpackPlugin.options.image %>">
+  <meta property="og:description" content="<%= htmlWebpackPlugin.options.description %>">
+  <meta property="og:site_name" content="<%= htmlWebpackPlugin.options.title %>">
 </head>
 <body>
   <main id="app" class="app"></main>
