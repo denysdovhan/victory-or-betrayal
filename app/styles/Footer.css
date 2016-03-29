@@ -7,7 +7,8 @@
   bottom: .5rem;
   right: .5rem;
 
-  & a {
+  & a,
+  & span {
     color: var(--linkColor);
     position: relative;
     margin-right: 1rem;

@@ -12,6 +12,7 @@ import Footer from 'components/Footer';
 
 import styles from 'styles/App';
 import data from '../data';
+import { version } from '../../package';
 
 class App extends React.Component {
 
@@ -68,7 +69,9 @@ class App extends React.Component {
             url={window.location.href}
             text={this.getPageTitle()}/>
 
-          <Footer />
+          <Footer
+            items={data.footer}
+            version={version}/>
 
         </div>
       </DocumentTitle>
