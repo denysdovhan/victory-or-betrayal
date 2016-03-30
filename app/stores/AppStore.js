@@ -1,5 +1,4 @@
 import {
-  UPDATE_INPUT_VALUE,
   INPUT_REQUEST,
   RECIEVE_QUERY
 } from 'actions/AppAction';
@@ -89,10 +88,6 @@ AppDispather.register(payload => {
   const action = payload.action;
 
   switch (action.actionType) {
-    case UPDATE_INPUT_VALUE:
-      AppStoreInstance.handleUpdateInputValue(action);
-      break;
-
     case INPUT_REQUEST:
       AppStoreInstance.handleInputRequest(action);
       break;
