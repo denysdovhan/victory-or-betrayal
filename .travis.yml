@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- v5
+before_script:
+- git config --global user.email "email@denysdovhan.com"
+- git config --global user.name "Travis Builder"
+- git remote rm origin
+- git remote add origin https://denysdovhan:${GH_TOKEN}@github.com/denysdovhan/victory-or-betrayal.git
+script:
+- npm run deploy
+env:
+  global:
+    secure: rq0t7Ui5y8562vLQH3yTZTFaM257QWE/au+v2Nr9BOBltY7cbGymN8S7XIPCbKrr8o2XqhpoPMUAthO85xUXQUzBYbByLCoBp0ILeR8enseLADyzHHhucjY5A/eacykN/uh8lkwZmp22xI12pkUQQy2aOmtP4E/7to4WQGWo7zCjFS3dm7/GL9yhQPwtY8jxV8zjjuJoYLaFVzAFRPjewLuGOQFZv14WgiwLhAy08d6LgXQGriW/SKCfUPIx7SSSB94VCS/Q0/eyPsUoyP/MWFVcDj1YxiB4u5tDyoocNyB5/IgIwb8OBor7NweGlhwSbPSo9xthoZS1B9zErSC05Y4RPVPuFQ++r/3EvpEwdlBHUq7Qt5E8jkFmCH1o7ATyL9ynnJae9Ibi+GQd4lrZoyz0Q2FwZjN7/JtuLQzp5w+nJUsD7fWNlgWGGQHNZ96EAiw7SUEEAIOaXk9w3QPqQmrVDbm8u/wv+DYCfnNVzeWafsawtpgdBQppfHg7bL72spHEgUtsckPDYaFkAPlaLdND6WX2lb1uWLolMvc1We3EeAv/jZZo1FvMV0xAUR7sYr0BRNqI2PssjvrbvQw0Je2krUwKpIRPFxIcRGsWIMTVsV7/l3f1NwZGGFz085OGkEiZrzP6bMXsNKjoquwrOU1KS+52dSHQMVeaxoNuuHo=
