@@ -10,6 +10,10 @@ class Input extends React.Component  {
     };
   }
 
+  componentWillReceiveProps({ value }) {
+    this.setState({ value });
+  }
+
   render() {
     const { value } = this.state;
 
