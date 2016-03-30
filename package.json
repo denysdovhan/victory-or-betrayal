@@ -1,6 +1,6 @@
 {
   "name": "victory-or-betrayal",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "React app that helps you recognize betrayal and victory",
   "main": "app/index.html",
   "scripts": {
