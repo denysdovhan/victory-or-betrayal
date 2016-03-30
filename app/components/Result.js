@@ -1,15 +1,20 @@
 import React, { PropTypes } from 'react';
 import 'styles/Result';
-import data from '../data';
 
-const Result = ({ status }) => (
+const Result = ({ status, results, placeholder }) => (
   <h1 className={ status }>
-    { status ? data.results[status] : data.placeholders.result }
+    { status ? results[status] : placeholder }
   </h1>
 );
 
 Result.propsTypes = {
-  status: PropTypes.string.isRequired
+  status: PropTypes.string.isRequired,
+  results: PropTypes.array.isRequired,
+  placeholder: PropTypes.string
+};
+
+Result.defaultProps = {
+  placeholder: 'Nothing'
 };
 
 export default Result;

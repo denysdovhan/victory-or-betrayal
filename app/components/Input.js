@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import styles from 'styles/Input';
-import data from '../data';
 
 class Input extends React.Component  {
   constructor(props) {
@@ -18,7 +17,7 @@ class Input extends React.Component  {
       <input
         type='text'
         className={styles.input}
-        placeholder={data.placeholders.input}
+        placeholder={this.props.placeholder}
         value={ value }
         autoFocus={ true }
         onChange={ e => {
@@ -37,7 +36,12 @@ class Input extends React.Component  {
 }
 
 Input.propsTypes = {
-  value: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
+  placeholder: PropTypes.string
+};
+
+Input.defaultProps = {
+  placeholder: 'Type query…'
 };
 
 export default Input;

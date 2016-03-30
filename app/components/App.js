@@ -53,15 +53,22 @@ class App extends React.Component {
           <Header>
             <span className='victory'>{data.results.victory}</span>
             { ' чи ' }
-            <span className='betrayal'>{data.results.betrayal}</span>?
+            <span className='betrayal'>{data.results.betrayal}</span>
+            { '?' }
           </Header>
 
-          <LeadText>{data.description}</LeadText>
+          <LeadText>
+            {data.description}
+          </LeadText>
 
-          <Result status={this.state.status}/>
+          <Result
+            status={this.state.status}
+            results={data.results}
+            placeholder={data.placeholders.result}/>
 
           <Input
             value={this.state.value}
+            placeholder={data.placeholders.input}
             changeHandler={AppAction.updateInputValue}
             requersHandler={AppAction.inputRequest} />
 
