@@ -1,4 +1,4 @@
-# Victory or Betrayal?
+# Victory or Betrayal? [![Build Status][travis-image]][travis-url]
 
 > React app that helps you recognize betrayal and victory.
 
@@ -46,3 +46,8 @@ After installation you will have these task:
 ## License
 
 MIT © [Denys Dovhan](http://denysdovhan.com)
+
+<!-- References -->
+
+[travis-url]: https://travis-ci.org/denysdovhan/victory-or-betrayal
+[travis-image]: https://img.shields.io/travis/denysdovhan/victory-or-betrayal.svg?style=flat-square
