@@ -1,5 +1,7 @@
 # Victory or Betrayal? [![Build Status][travis-image]][travis-url]
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/denysdovhan/victory-or-betrayal.svg)](https://greenkeeper.io/)
+
 > React app that helps you recognize betrayal and victory.
 
 Actually, this is just an application which helps me to try new bleeding edge technologies. This is something like _sandbox_.
